@@ -1,6 +1,6 @@
-{% set python_min = '3.9.6' %}
 {% set name = "nomad-camels-driver-trinamic-tmcm-1110" %}
 {% set version = "0.1.0" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
