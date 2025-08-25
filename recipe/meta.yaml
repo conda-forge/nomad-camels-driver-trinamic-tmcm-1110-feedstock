@@ -1,5 +1,5 @@
 {% set name = "nomad-camels-driver-trinamic-tmcm-1110" %}
-{% set version = "0.1.0" %}
+{% set version = "0.1.1" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nomad_camels_driver_trinamic_tmcm_1110-{{ version }}.tar.gz
-  sha256: 17f3f75b58be9ba83db4a34bdb1d8ac8d91e4883d44a663152e872e71f99a0fe
+  sha256: 7f04a85c2c91a2c09ff063187064ca6ba3cecb5128c985577891370f77fc4b8f
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 2
+  number: 0
 
 requirements:
   host:
