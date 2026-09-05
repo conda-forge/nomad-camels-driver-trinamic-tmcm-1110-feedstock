@@ -1,0 +1,47 @@
+schema_version: 1
+
+context:
+  name: nomad-camels-driver-trinamic-tmcm-1110
+  version: "0.1.1"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/nomad_camels_driver_trinamic_tmcm_1110-${{ version }}.tar.gz
+  sha256: 7f04a85c2c91a2c09ff063187064ca6ba3cecb5128c985577891370f77fc4b8f
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools >=61.0
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - pytrinamic
+    - nomad-camels
+
+tests:
+  - python:
+      imports:
+        - nomad_camels_driver_trinamic_tmcm_1110
+      pip_check: false
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  summary: Instrument driver for Trinamic TMCM 1110 for NOMAD-CAMELS
+  license: LGPL-2.1-or-later
+  license_file: LICENSE.txt
+  homepage: https://github.com/FAU-LAP/CAMELS_drivers
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
